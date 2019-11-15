@@ -30,7 +30,7 @@ node{
   * Printing multiple tags is cheap, as all the layers are reused */
   
   docker withRegistry('https://registry.hub.docker.com', 'jstryngs') {
-    app.push("$(env.BUILD_NUMBER)")
+    app.push("${env.BUILD_NUMBER}")
     app.push("latest")
     
   }
