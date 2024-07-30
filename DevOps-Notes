@@ -1,0 +1,5 @@
+DevOps Notes
+#### Below is used to delete a dangling namespace on kubernetes
+kubectl get namespace "cattle-impersonation-system" -o json \
+  | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/" \
+  | kubectl replace --raw /api/v1/namespaces/cattle-impersonation-system/finalize -f -
